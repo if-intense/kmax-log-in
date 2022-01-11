@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <link rel="stylesheet" href="css/index.css">
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dojo/1.16.3/tests/functional/_base/loader/requirejs/exports/vanilla.js"></script> -->
+
+
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script> -->
+</head>
+<script>
+    var slideIndex = 1;
+    var myTimer;
+    var slideshowContainer;
+
+    window.addEventListener("load", function () {
+        showSlides(slideIndex);
+        myTimer = setInterval(function () { plusSlides(1) }, 4000);
+
+        slideshowContainer = document.getElementsByClassName('slideshow-inner')[0];
+
+        slideshowContainer.addEventListener('mouseenter', pause)
+        slideshowContainer.addEventListener('mouseleave', resume)
+    })
+
+    // NEXT AND PREVIOUS CONTROL
+    function plusSlides(n) {
+        clearInterval(myTimer);
+        if (n < 0) {
+            showSlides(slideIndex -= 1);
+        } else {
+            showSlides(slideIndex += 1);
+        }
+
+
+
+        if (n === -1) {
+            myTimer = setInterval(function () { plusSlides(n + 2) }, 4000);
+        } else {
+            myTimer = setInterval(function () { plusSlides(n + 1) }, 4000);
+        }
+    }
+
+
+    function currentSlide(n) {
+        clearInterval(myTimer);
+        myTimer = setInterval(function () { plusSlides(n + 1) }, 4000);
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+
+    pause = () => {
+        clearInterval(myTimer);
+    }
+
+    resume = () => {
+        clearInterval(myTimer);
+        myTimer = setInterval(function () { plusSlides(slideIndex) }, 4000);
+    }
+</script>
+
+<body>
+    <!-- 元々のコード -->
+    <div class="c-fullhv l-top">
+        <div class="l-fv">
+            <h1><img src="image/logo.svg" alt="KAMISMAX"></h1>
+            <!-- <h1 class="c-toptitle"><span class="c-hdn" style="color:#fff;">KAMISMAX</span></h1> -->
+        </div>
+        <div class="l-topcontents">
+            <form class="js-validate" action="/login" method="post">
+                <div class="l-m022 c-form_wrap c-form_wrap1">
+                    <label class="l-m001 c-form c-form_mail c-topform c-topmail" for="form_mail">
+                        <input type="text" id="form_mail" class="c-form_parts c-topform_parts c-topmail_parts"
+                            name="email" placeholder="&nbsp;">
+                        <h3 class="c-form_hd">メールアドレス</h3>
+                    </label>
+                    <label class="l-m001 c-form c-form_pass c-topform c-toppass" for="form_pass">
+                        <input type="password" id="form_pass" class="c-form_parts c-topform_parts c-toppass_parts"
+                            name="password" placeholder="&nbsp;">
+                        <h3 class="c-form_hd">パスワード</h3>
+                    </label>
+
+                    <p class="l-txt_c l-m001"><a class="c-tx_link" href="/signup">メールアドレスで新規登録の方はこちら</a></p>
+                    <p class="l-txt_c l-m001"><a class="c-tx_link" href="/reset_password">パスワードを忘れた方はこちら</a></p>
+                    <button type="submit" class="l-m001 c-btn c-btn_innerfull c-btn_em" formaction="#">ログイン</button>
+                    <p class="l-txt_c l-m001 c-txhr">SNSで新規登録/ログイン</p>
+                    <div id="firebaseui-auth-container"></div>
+                </div>
+            </form>
+            <p class="l-txt_c l-m002"><a class="c-tx_link" href="/contact">お問い合わせはこちら</a></p>
+        </div>
+    </div>
+    <div class="loader-wrap">
+        <div class="loader">Loading...</div>
+    </div>
+    <!-- 元々のコード　-->
+
+    <div class="b-contents">
+        <div class="v-contents">
+            <!-- <h2>サービス</h2> -->
+            <div class="video-c">
+
+                <video id="videoBG" autoplay muted playsinline loop controlsList="nodownload">
+                    <source src="image/intro-video.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <div class="b-c-contents">
+            <div class="b-c-c">
+                <div class="box text">
+                    <div class="num-left"><img src="image/no1.png" alt="1"></div>
+                    <div class="contents">
+                        <h3>美容業界初の視聴環境</h3>
+                        <p>
+                            ⾊んな⾓度から⾒ることができる「マルチアングル」×圧倒的な映像クオリティ「４K」を採⽤。
+                            この「マルチアングル」は複数の⽅向から撮影されている映像を、ボタン⼀つで⾃由に視点を
+                            切り替えることが出来る機能です。<br>
+                            KAMISMAXでは、寄り・引き・真上・⼿元の⽅向から好きな視点を選んで視聴して頂けます。
+                            美容業界初の機能として、教育動画の可能性を⼤幅に引き上げていきます。
+                        </p>
+                    </div>
+                </div>
+                <div class="box image">
+                    <div class="image-bc">
+                        <img src="image/multi-angle.png" alt="マルチアングル">
+                    </div>
+                </div>
+            </div>
+            <div class="b-c-c force-left">
+                <div class="box image">
+                    <div class="image-bc">
+                        <img src="image/img-02.png" alt="マルチアングル">
+                    </div>
+                </div>
+                <div class="box text">
+                    <div class="num-left"><img src="image/no2.png" alt="2"></div>
+                    <div class="contents">
+                        <h3>厳選されたキャスティング</h3>
+                        <p>
+                            ⼀流の証でもある「カミカリスマ」を受賞された⽅々を中⼼に出演者をキャスティングし、
+                            技術だけではなく⼈物像や考え⽅にも触れることができ、
+                            モチベーションアップに繋がる豊富なコンテンツをお届けしています。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="b-c-c">
+                <div class="box text">
+                    <div class="num-left"><img src="image/no3.png" alt="1"></div>
+                    <div class="contents">
+                        <h3>厳選されたキャスティング</h3>
+                        <p>
+                            ⼀流の証でもある「カミカリスマ」を受賞された⽅々を中⼼に出演者をキャスティングし、
+                            技術だけではなく⼈物像や考え⽅にも触れることができ、
+                            モチベーションアップに繋がる豊富なコンテンツをお届けしています。
+                        </p>
+                    </div>
+                </div>
+                <div class="box image">
+                    <div class="image-bc">
+                        <div class="slideshow-container">
+                            <div class="slideshow-inner">
+                                <div class="mySlides fade">
+                                    <img src='image/stylists/stylist-6.png' style='width: 100%;' alt="stylist 1" />
+                                    <!-- <div class="text">text</div> -->
+                                </div>
+                                <div class="mySlides fade">
+                                    <img src='image/stylists/stylist-5.png' style='width: 100%;' alt="stylist 2" />
+                                </div>
+                                <div class="mySlides fade">
+                                    <img src='image/stylists/stylist-4.png' style='width: 100%;' alt="stylist 3" />
+                                </div>
+                                <div class="mySlides fade">
+                                    <img src='image/stylists/stylist-11.png' style='width: 100%;' alt="stylist 4" />
+                                </div>
+                                <div class="mySlides fade">
+                                    <img src='image/stylists/stylist-15.png' style='width: 100%;' alt="stylist 5" />
+                                </div>
+                                <div class="mySlides fade">
+                                    <img src='image/stylists/stylist-34.png' style='width: 100%;' alt="stylist 6" />
+                                </div>
+                                <div class="mySlides fade">
+                                    <img src='image/stylists/stylist-36.png' style='width: 100%;' alt="stylist 7" />
+                                </div>
+                                <div class="mySlides fade">
+                                    <img src='image/stylists/stylist-38.png' style='width: 100%;' alt="stylist 8" />
+                                </div>
+
+                            </div>
+
+
+                            <a class="prev" onclick='plusSlides(-1)'>&#10094;</a>
+                            <a class="next" onclick='plusSlides(1)'>&#10095;</a>
+                        </div>
+
+                        <br />
+
+                        <div style='text-align: center;'>
+                            <span class="dot" onclick='currentSlide(1)'></span>
+                            <span class="dot" onclick='currentSlide(2)'></span>
+                            <span class="dot" onclick='currentSlide(3)'></span>
+                            <span class="dot" onclick='currentSlide(4)'></span>
+                            <span class="dot" onclick='currentSlide(5)'></span>
+                            <span class="dot" onclick='currentSlide(6)'></span>
+                            <span class="dot" onclick='currentSlide(7)'></span>
+                            <span class="dot" onclick='currentSlide(8)'></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="c-contents">
+        <h4>よくある質問</h4>
+        <dl class="c-faq c-txt_m" id="faq">
+
+            <div v-for="question in questions">
+                <dt class="c-accordion"><span>{{question.ask}}</span></dt>
+                <dd class="c-answer_block">
+                    <p v-html="question.answer"></p>
+                </dd>
+            </div>
+
+        </dl>
+    </div>
+    <div class="footer">
+        <div class="contents">
+            <ul>
+                <li><a href="http://www.invade.co.jp/index.php#about">会社概要</a></li>
+                <li><a href="https://kamismax.kamisma.com/policy">プライバシーポリシー</a></li>
+            </ul>
+            All Rights Reserved © INVADE Co., Ltd.
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/jquery.validate.min.js" charset="UTF-8"></script>
+    <script src="js/common.js"></script>
+
+    <!-- firebase -->
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth__ja.js"></script>
+    <script src="js/messages_ja.js" charset="UTF-8"></script>
+    <script src="js/login.js" charset="UTF-8"></script>
+    <script src="js/app_auth.js" charset="UTF-8"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="/js/app.js"></script>
+</body>
+
+</html>

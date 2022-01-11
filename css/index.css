@@ -1,0 +1,229 @@
+.b-contents {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+.b-contents .v-contents {
+  text-align: center;
+}
+.b-contents .v-contents .video-c {
+  width: 100%;
+  max-width: 800px;
+  margin: 8vh auto;
+}
+.b-contents .v-contents .video-c video {
+  width: 100%;
+}
+
+.b-c-contents {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: url("../image/pattern-bg.png") no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.b-c-contents .b-c-c {
+  border-top: 1px solid rgba(240, 240, 240, 0.66);
+  padding: 4vh 0;
+  display: flex;
+  flex-direction: row;
+  margin: 8vh auto;
+}
+.b-c-contents .b-c-c .box {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.b-c-contents .b-c-c .text {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.b-c-contents .b-c-c .text .num-left {
+  position: absolute;
+  top: 0;
+  left: 3%;
+  width: 100%;
+  max-width: 60px;
+}
+.b-c-contents .b-c-c .text .contents h3 {
+  text-align: center;
+  font-size: 1.5em;
+  text-decoration: underline;
+}
+.b-c-contents .b-c-c .text .contents p {
+  padding: 40px 80px;
+  font-size: 1.05em;
+  line-height: 2em;
+}
+.b-c-contents .b-c-c .image .image-bc {
+  width: 100%;
+  padding: 30px;
+}
+
+.c-contents {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 10vh;
+}
+.c-contents h4 {
+  text-align: center;
+  margin-bottom: 4vh;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.c-contents .c-faq {
+  border-bottom: 1px solid #fff;
+}
+.c-contents .c-faq dt {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  position: relative;
+  border-top: 1px solid #fff;
+}
+.c-contents .c-faq dt::after {
+  content: "";
+  display: block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-bottom: 1px solid #fff;
+  border-right: 1px solid #fff;
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transition: 0.3s ease-out;
+  transform: translateY(-80%) rotate(45deg);
+}
+.c-contents .c-faq dt:not(:first-child) {
+  border-top: 1px solid #fff;
+}
+.c-contents .c-faq dt.selected::after {
+  transform: translateY(-20%) rotate(225deg);
+}
+.c-contents .c-faq dd {
+  display: none;
+  padding: 2.75rem 1rem;
+  border-top: 1px solid #999;
+  background: #333;
+}
+.c-contents .c-faq.c-txt_m {
+  white-space: normal;
+}
+
+.slideshow-container {
+  max-width: 600px;
+  position: relative;
+  margin: auto;
+}
+
+.mySlides {
+  display: none;
+  aspect-ratio: 16/9;
+  border: solid 1px black;
+}
+
+.prev {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: #222428;
+  font-weight: bold;
+  font-size: 30px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  left: 50px;
+  border-radius: 3px 3px 3px 3px;
+}
+.prev:hover {
+  color: #f2f2f2;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: #222428;
+  font-weight: bold;
+  font-size: 30px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  right: 50px;
+  border-radius: 3px 3px 3px 3px;
+}
+.next:hover {
+  color: #f2f2f2;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.dot:hover {
+  background-color: #717171;
+}
+
+.active {
+  background-color: #717171;
+}
+
+.footer .contents {
+  font-size: 0.8em;
+  width: 100%;
+  color: #fff;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+.footer .contents ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 992px) {
+  .b-c-contents {
+    max-width: 900px;
+  }
+  .b-c-contents .b-c-c {
+    flex-direction: column;
+  }
+  .b-c-contents .b-c-c .box {
+    width: 100%;
+  }
+  .b-c-contents .force-left {
+    flex-direction: column-reverse;
+  }
+  .b-c-contents .force-left .box {
+    width: 100%;
+    max-width: 992px;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */
