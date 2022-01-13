@@ -1075,6 +1075,10 @@ p.is-success::before {
 .l-txt_c {
   text-align: center; }
 
+.l-txt_c strong {
+  font-size: 40px;
+}
+
 .l-w100 {
   width: 100% !important; }
 
